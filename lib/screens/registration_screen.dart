@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../controllers/registration_controller.dart';
 import '../enums/enums.dart';
 import '../utils/validators.dart';
+import '../utils/app_theme.dart';
 
 /// Registration Screen - Handles user account creation
 class RegistrationScreen extends StatefulWidget {
@@ -69,11 +70,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       value: _registrationController,
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue.shade900, Colors.blue.shade800],
+              colors: [AppTheme.earthDark, AppTheme.earthMid],
             ),
           ),
           child: SafeArea(
@@ -89,11 +90,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   // Rounded Container with Form
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppTheme.cream,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
+                          color: AppTheme.earthDark.withValues(alpha: 0.18),
                           blurRadius: 10,
                           offset: const Offset(0, 5),
                         ),
@@ -140,13 +141,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.2),
+            color: AppTheme.cream.withValues(alpha: 0.18),
             shape: BoxShape.circle,
           ),
           child: const Icon(
             Icons.person_add_outlined,
             size: 50,
-            color: Colors.white,
+            color: AppTheme.cream,
           ),
         ),
         const SizedBox(height: 20),
@@ -155,13 +156,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.cream,
           ),
         ),
         const SizedBox(height: 8),
         const Text(
           'Create your account to get started',
-          style: TextStyle(fontSize: 14, color: Colors.white70),
+          style: TextStyle(fontSize: 14, color: AppTheme.sand),
         ),
       ],
     );
@@ -177,7 +178,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            color: AppTheme.ink,
           ),
         ),
         const SizedBox(height: 8),
@@ -188,20 +189,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           decoration: InputDecoration(
             hintText: 'Enter your full name',
             prefixIcon: const Icon(Icons.person_outline),
+            prefixIconColor: AppTheme.muted,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.grey),
+              borderSide: const BorderSide(color: AppTheme.muted),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderSide: const BorderSide(color: AppTheme.sand),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.blue, width: 2),
+              borderSide: const BorderSide(color: AppTheme.terracotta, width: 2),
             ),
             filled: true,
-            fillColor: Colors.grey.shade50,
+            fillColor: AppTheme.sand,
           ),
         ),
       ],
@@ -218,7 +220,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            color: AppTheme.ink,
           ),
         ),
         const SizedBox(height: 8),
@@ -229,20 +231,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           decoration: InputDecoration(
             hintText: 'Enter your email',
             prefixIcon: const Icon(Icons.email_outlined),
+            prefixIconColor: AppTheme.muted,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.grey),
+              borderSide: const BorderSide(color: AppTheme.muted),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderSide: const BorderSide(color: AppTheme.sand),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.blue, width: 2),
+              borderSide: const BorderSide(color: AppTheme.terracotta, width: 2),
             ),
             filled: true,
-            fillColor: Colors.grey.shade50,
+            fillColor: AppTheme.sand,
           ),
         ),
       ],
@@ -261,7 +264,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: AppTheme.ink,
               ),
             ),
             const SizedBox(height: 8),
@@ -272,6 +275,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 prefixIcon: const Icon(Icons.lock_outline),
+                prefixIconColor: AppTheme.muted,
                 suffixIcon: IconButton(
                   icon: Icon(
                     controller.passwordVisible
@@ -282,18 +286,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: AppTheme.muted),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: const BorderSide(color: AppTheme.sand),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.blue, width: 2),
+                  borderSide:
+                      const BorderSide(color: AppTheme.terracotta, width: 2),
                 ),
                 filled: true,
-                fillColor: Colors.grey.shade50,
+                fillColor: AppTheme.sand,
               ),
             ),
             const SizedBox(height: 8),
@@ -309,7 +314,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: AppTheme.sand,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -320,7 +325,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.blue,
+              color: AppTheme.earthMid,
             ),
           ),
           const SizedBox(height: 6),
@@ -338,15 +343,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       padding: const EdgeInsets.symmetric(vertical: 3),
       child: Row(
         children: [
-          Icon(
+          const Icon(
             Icons.check_circle_outline,
             size: 14,
-            color: Colors.blue.shade600,
+            color: AppTheme.olive,
           ),
           const SizedBox(width: 8),
           Text(
             text,
-            style: TextStyle(fontSize: 12, color: Colors.blue.shade700),
+            style: const TextStyle(fontSize: 12, color: AppTheme.earthMid),
           ),
         ],
       ),
@@ -365,7 +370,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: AppTheme.ink,
               ),
             ),
             const SizedBox(height: 8),
@@ -384,6 +389,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               decoration: InputDecoration(
                 hintText: 'Re-enter your password',
                 prefixIcon: const Icon(Icons.lock_outline),
+                prefixIconColor: AppTheme.muted,
                 suffixIcon: IconButton(
                   icon: Icon(
                     controller.confirmPasswordVisible
@@ -394,18 +400,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: AppTheme.muted),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: const BorderSide(color: AppTheme.sand),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.blue, width: 2),
+                  borderSide:
+                      const BorderSide(color: AppTheme.terracotta, width: 2),
                 ),
                 filled: true,
-                fillColor: Colors.grey.shade50,
+                fillColor: AppTheme.sand,
               ),
             ),
           ],
@@ -426,7 +433,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: AppTheme.ink,
               ),
             ),
             const SizedBox(height: 8),
@@ -443,20 +450,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               decoration: InputDecoration(
                 hintText: 'Select your gender',
                 prefixIcon: const Icon(Icons.wc_outlined),
+                prefixIconColor: AppTheme.muted,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: AppTheme.muted),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: const BorderSide(color: AppTheme.sand),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.blue, width: 2),
+                  borderSide:
+                      const BorderSide(color: AppTheme.terracotta, width: 2),
                 ),
                 filled: true,
-                fillColor: Colors.grey.shade50,
+                fillColor: AppTheme.sand,
               ),
               isExpanded: true,
             ),
@@ -475,18 +484,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             margin: const EdgeInsets.only(bottom: 16),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade50,
-              border: Border.all(color: Colors.red.shade300),
+              color: AppTheme.error.withValues(alpha: 0.12),
+              border: Border.all(color: AppTheme.error.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
               children: [
-                Icon(Icons.error_outline, color: Colors.red.shade700),
+                const Icon(Icons.error_outline, color: AppTheme.error),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     controller.errorMessage!,
-                    style: TextStyle(color: Colors.red.shade700, fontSize: 12),
+                    style: const TextStyle(
+                      color: AppTheme.error,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
               ],
@@ -507,8 +519,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         return ElevatedButton(
           onPressed: isLoading ? null : _handleRegister,
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue.shade700,
-            disabledBackgroundColor: Colors.grey.shade300,
+            backgroundColor: AppTheme.terracotta,
+            disabledBackgroundColor: AppTheme.sand,
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -543,7 +555,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       children: [
         const Text(
           'Already have an account? ',
-          style: TextStyle(color: Colors.black87, fontSize: 14),
+          style: TextStyle(color: AppTheme.ink, fontSize: 14),
         ),
         GestureDetector(
           onTap: () {
@@ -552,7 +564,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: Text(
             'Login',
             style: TextStyle(
-              color: Colors.blue.shade700,
+              color: AppTheme.terracotta,
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

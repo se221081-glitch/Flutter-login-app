@@ -5,6 +5,7 @@ import '../enums/enums.dart';
 import '../utils/validators.dart';
 import 'registration_screen.dart';
 import 'dashboard_screen.dart';
+import '../utils/app_theme.dart';
 
 /// Login Screen - Handles user authentication
 class LoginScreen extends StatefulWidget {
@@ -66,11 +67,11 @@ class _LoginScreenState extends State<LoginScreen> {
       value: _loginController,
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue.shade900, Colors.blue.shade800],
+              colors: [AppTheme.earthDark, AppTheme.earthMid],
             ),
           ),
           child: SafeArea(
@@ -86,11 +87,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Rounded Container with Form
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppTheme.cream,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
+                          color: AppTheme.earthDark.withValues(alpha: 0.18),
                           blurRadius: 10,
                           offset: const Offset(0, 5),
                         ),
@@ -133,10 +134,14 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.2),
+            color: AppTheme.cream.withValues(alpha: 0.18),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.lock_outline, size: 50, color: Colors.white),
+          child: const Icon(
+            Icons.lock_outline,
+            size: 50,
+            color: AppTheme.cream,
+          ),
         ),
         const SizedBox(height: 20),
         const Text(
@@ -144,13 +149,13 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.cream,
           ),
         ),
         const SizedBox(height: 8),
         const Text(
           'Welcome back to your dashboard',
-          style: TextStyle(fontSize: 14, color: Colors.white70),
+          style: TextStyle(fontSize: 14, color: AppTheme.sand),
         ),
       ],
     );
@@ -166,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            color: AppTheme.ink,
           ),
         ),
         const SizedBox(height: 8),
@@ -177,20 +182,21 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: InputDecoration(
             hintText: 'Enter your email',
             prefixIcon: const Icon(Icons.email_outlined),
+            prefixIconColor: AppTheme.muted,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.grey),
+              borderSide: const BorderSide(color: AppTheme.muted),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderSide: const BorderSide(color: AppTheme.sand),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.blue, width: 2),
+              borderSide: const BorderSide(color: AppTheme.terracotta, width: 2),
             ),
             filled: true,
-            fillColor: Colors.grey.shade50,
+            fillColor: AppTheme.sand,
           ),
         ),
       ],
@@ -209,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: AppTheme.ink,
               ),
             ),
             const SizedBox(height: 8),
@@ -220,6 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 prefixIcon: const Icon(Icons.lock_outline),
+                prefixIconColor: AppTheme.muted,
                 suffixIcon: IconButton(
                   icon: Icon(
                     controller.passwordVisible
@@ -230,18 +237,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: AppTheme.muted),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: const BorderSide(color: AppTheme.sand),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Colors.blue, width: 2),
+                  borderSide:
+                      const BorderSide(color: AppTheme.terracotta, width: 2),
                 ),
                 filled: true,
-                fillColor: Colors.grey.shade50,
+                fillColor: AppTheme.sand,
               ),
             ),
           ],
@@ -261,11 +269,11 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 controller.toggleRememberMe(value ?? false);
               },
-              activeColor: Colors.blue,
+              activeColor: AppTheme.olive,
             ),
             const Text(
               'Remember me',
-              style: TextStyle(fontSize: 14, color: Colors.black87),
+              style: TextStyle(fontSize: 14, color: AppTheme.ink),
             ),
           ],
         );
@@ -282,18 +290,21 @@ class _LoginScreenState extends State<LoginScreen> {
             margin: const EdgeInsets.only(bottom: 16),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade50,
-              border: Border.all(color: Colors.red.shade300),
+              color: AppTheme.error.withValues(alpha: 0.12),
+              border: Border.all(color: AppTheme.error.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
               children: [
-                Icon(Icons.error_outline, color: Colors.red.shade700),
+                const Icon(Icons.error_outline, color: AppTheme.error),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     controller.errorMessage!,
-                    style: TextStyle(color: Colors.red.shade700, fontSize: 12),
+                    style: const TextStyle(
+                      color: AppTheme.error,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
               ],
@@ -314,8 +325,8 @@ class _LoginScreenState extends State<LoginScreen> {
         return ElevatedButton(
           onPressed: isLoading ? null : _handleLogin,
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue.shade700,
-            disabledBackgroundColor: Colors.grey.shade300,
+            backgroundColor: AppTheme.terracotta,
+            disabledBackgroundColor: AppTheme.sand,
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -350,7 +361,7 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         const Text(
           "Don't have an account? ",
-          style: TextStyle(color: Colors.black87, fontSize: 14),
+          style: TextStyle(color: AppTheme.ink, fontSize: 14),
         ),
         GestureDetector(
           onTap: () {
@@ -363,7 +374,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Text(
             'Sign up',
             style: TextStyle(
-              color: Colors.blue.shade700,
+              color: AppTheme.terracotta,
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

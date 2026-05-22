@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../controllers/dashboard_controller.dart';
 import '../models/user.dart';
 import 'login_screen.dart';
+import '../utils/app_theme.dart';
 
 /// Dashboard Screen - Protected screen showing user information and subjects
 class DashboardScreen extends StatefulWidget {
@@ -86,11 +87,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       value: _dashboardController,
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue.shade900, Colors.blue.shade800],
+              colors: [AppTheme.earthDark, AppTheme.earthMid],
             ),
           ),
           child: SafeArea(
@@ -126,13 +127,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.cream,
           ),
         ),
         const SizedBox(height: 8),
         Text(
           'Welcome back, ${widget.user.fullName}!',
-          style: const TextStyle(fontSize: 16, color: Colors.white70),
+          style: const TextStyle(fontSize: 16, color: AppTheme.sand),
         ),
       ],
     );
@@ -142,11 +143,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildUserCard() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.cream,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: AppTheme.earthDark.withValues(alpha: 0.18),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -162,7 +163,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.blue.shade100,
+                  color: AppTheme.sand,
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -171,7 +172,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue.shade700,
+                      color: AppTheme.terracotta,
                     ),
                   ),
                 ),
@@ -186,7 +187,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: AppTheme.ink,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -194,7 +195,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       widget.user.email,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey.shade600,
+                        color: AppTheme.muted,
                       ),
                     ),
                   ],
@@ -220,7 +221,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           label,
           style: TextStyle(
             fontSize: 14,
-            color: Colors.grey.shade600,
+            color: AppTheme.muted,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -228,7 +229,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           value,
           style: const TextStyle(
             fontSize: 14,
-            color: Colors.black87,
+            color: AppTheme.ink,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -246,7 +247,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppTheme.cream,
           ),
         ),
         const SizedBox(height: 16),
@@ -268,11 +269,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.cream,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: AppTheme.earthDark.withValues(alpha: 0.16),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -306,7 +307,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: Colors.black87,
+                          color: AppTheme.ink,
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -314,7 +315,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         subject['description'] ?? '',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey.shade600,
+                          color: AppTheme.muted,
                         ),
                       ),
                     ],
@@ -322,7 +323,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.grey.shade400,
+                  color: AppTheme.muted,
                   size: 16,
                 ),
               ],
@@ -342,8 +343,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: ElevatedButton(
             onPressed: controller.isLogoutLoading ? null : _handleLogout,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red.shade600,
-              disabledBackgroundColor: Colors.grey.shade300,
+              backgroundColor: AppTheme.error,
+              disabledBackgroundColor: AppTheme.sand,
               padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
