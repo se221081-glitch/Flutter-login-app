@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../controllers/dashboard_controller.dart';
 import '../models/user.dart';
 import 'login_screen.dart';
+import 'courses_screen.dart';
 import '../utils/app_theme.dart';
 
 /// Dashboard Screen - Protected screen showing user information and subjects
@@ -106,6 +107,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   const SizedBox(height: 40),
                   _buildSubjectsSection(),
                   const SizedBox(height: 30),
+                  _buildCoursesButton(),
+                  const SizedBox(height: 12),
                   _buildLogoutButton(),
                   const SizedBox(height: 20),
                 ],
@@ -328,6 +331,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Build courses button
+  Widget _buildCoursesButton() {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const CoursesScreen()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppTheme.olive,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        icon: const Icon(Icons.library_books),
+        label: const Text(
+          'Manage Courses',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
           ),
         ),
       ),
