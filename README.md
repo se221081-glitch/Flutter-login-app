@@ -188,7 +188,23 @@ flutter run
 
 ## Screenshots
 
-[To be added after testing]
+### Login Screen
+![Login Screen](screenshots/1.png)
+
+### Registration Screen
+![Registration Screen](screenshots/2.png)
+
+### Dashboard
+![Dashboard](screenshots/3.png)
+
+### Courses Management - List View
+![Courses List](screenshots/4.png)
+
+### Add Course Dialog
+![Add Course](screenshots/5.png)
+
+### Course Details Edit
+![Edit Course](screenshots/6.png)
 
 ## Testing the API
 
