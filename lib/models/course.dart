@@ -1,8 +1,22 @@
+import 'package:hive/hive.dart';
+
+part 'course.g.dart';
+
 /// Model class to represent course data from JSONPlaceholder API
+/// 
+/// Annotated with @HiveType to enable Hive serialization for offline storage
+@HiveType(typeId: 0)
 class Course {
+  @HiveField(0)
   final int id;
+  
+  @HiveField(1)
   final String title;
+  
+  @HiveField(2)
   final String body;
+  
+  @HiveField(3)
   final int userId;
 
   Course({

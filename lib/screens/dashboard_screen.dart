@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../controllers/dashboard_controller.dart';
 import '../models/user.dart';
 import 'login_screen.dart';
-import 'courses_screen.dart';
+import 'courses_screen_enhanced.dart';
 import '../utils/app_theme.dart';
 
 /// Dashboard Screen - Protected screen showing user information and subjects
@@ -344,7 +344,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: ElevatedButton.icon(
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const CoursesScreen()),
+            MaterialPageRoute(builder: (context) => const CoursesScreenEnhanced()),
           );
         },
         style: ElevatedButton.styleFrom(
